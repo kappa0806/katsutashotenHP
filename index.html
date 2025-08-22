@@ -70,7 +70,12 @@
     <!-- 動画ヒーローセクション -->
     <section class="hero-video" id="home">
         <div class="hero__media">
-            <video id="hero-video" class="video-div" src="videos/topmovie.mp4" data-type="mp4" loop muted playsinline autoplay></video>
+            <video id="hero-video" class="video-div" loop muted playsinline autoplay>
+              <!-- PC用動画 -->
+              <source src="videos/topmovie.mp4" type="video/mp4" media="(min-width: 768px)">
+              <!-- スマホ用動画 -->
+              <source src="videos/top_smart.mp4" type="video/mp4" media="(max-width: 767px)">
+            </video>
         </div>
         
         <div class="hero__text-wrap">
