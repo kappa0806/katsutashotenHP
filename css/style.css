@@ -826,6 +826,21 @@ section {
     border-radius: 10px;
 }
 
+/* 自動翻訳注意書き */
+.translation-notice {
+    background-color: rgba(218, 165, 32, 0.1);
+    border-top: 1px solid rgba(218, 165, 32, 0.3);
+    padding: 15px 0;
+    text-align: center;
+}
+
+.notice-text {
+    color: var(--accent-gold);
+    font-size: 12px;
+    margin: 0;
+    opacity: 0.8;
+}
+
 /* フッター */
 .footer {
     background-color: var(--primary-black);
