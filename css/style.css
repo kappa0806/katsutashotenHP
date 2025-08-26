@@ -389,6 +389,9 @@ section {
     color: var(--accent-gold);
     margin-bottom: 30px;
     font-weight: 500;
+    /* 適切な改行位置を設定 */
+    word-break: auto;
+    line-break: normal;
 }
 
 .about-text p {
@@ -621,9 +624,9 @@ section {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-auto-rows: 250px;
-    gap: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 280px;
+    gap: 20px;
     margin-bottom: 60px;
 }
 
@@ -664,26 +667,14 @@ section {
     transition: transform 0.3s ease;
 }
 
-.gallery-image::before {
-    content: '📷';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 36px;
-    opacity: 0.3;
-    z-index: 1;
-    pointer-events: none;
-}
-
 .gallery-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
     color: var(--text-white);
-    padding: 30px 20px 20px;
+    padding: 40px 20px 20px;
     transform: translateY(100%);
     transition: transform 0.3s ease;
 }
@@ -693,9 +684,10 @@ section {
 }
 
 .gallery-overlay h4 {
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 700;
     margin-bottom: 5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .gallery-overlay p {
@@ -1009,6 +1001,18 @@ section {
     .stats-row {
         flex-direction: column;
         gap: 20px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 220px;
+        gap: 15px;
+    }
+    
+    .gallery-item.wide,
+    .gallery-item.tall,
+    .gallery-item.large {
+        grid-column: span 2;
     }
     
     .gallery-filters {
