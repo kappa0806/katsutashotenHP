@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 :root {
     --primary-black: #0d0d0d;
     --secondary-black: #1a1a1a;
@@ -22,6 +27,8 @@ body {
     color: var(--text-white);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
     /* 日本語禁則処理 */
     word-break: auto;
     line-break: strict;
@@ -347,16 +354,24 @@ section {
 
 .section-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.2;
     margin-bottom: 30px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     text-transform: uppercase;
     color: #fff;
     /* 見出しの改行制御 */
     word-break: keep-all;
-    white-space: nowrap;
-    overflow-wrap: normal;
+}
+
+/* 英語表示時の見出しスタイル調整 */
+[data-lang="en"] .section-title,
+[data-lang="zh"] .section-title {
+    word-break: normal;
+    hyphens: auto;
+    font-size: clamp(1.8rem, 4vw, 3rem);
 }
 
 .section-subtitle {
@@ -365,6 +380,26 @@ section {
     line-height: 1.8;
     max-width: 600px;
     margin: 0 auto;
+}
+
+/* 中野の魚屋セクション */
+.nakano-section {
+    background-color: var(--primary-black);
+    padding: 100px 0;
+}
+
+.nakano-content {
+    margin-top: 50px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nakano-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Aboutセクション */
@@ -828,6 +863,31 @@ section {
     border-radius: 10px;
 }
 
+/* 東京中野に魚のある食生活セクション */
+.fish-life-section {
+    background-color: var(--primary-black);
+    padding: 100px 0;
+}
+
+.fish-life-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.fish-life-text {
+    font-size: 18px;
+    line-height: 1.9;
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.fish-life-text:first-child {
+    color: var(--accent-gold);
+    font-size: 20px;
+    font-weight: 500;
+}
+
 /* 自動翻訳注意書き */
 .translation-notice {
     background-color: rgba(218, 165, 32, 0.1);
@@ -958,6 +1018,30 @@ section {
     
     .nav-container {
         padding: 0 20px;
+    }
+    
+    .nakano-section {
+        padding: 60px 0;
+    }
+    
+    .nakano-content {
+        padding: 0 20px;
+    }
+    
+    .fish-life-section {
+        padding: 60px 0;
+    }
+    
+    .fish-life-content {
+        padding: 0 20px;
+    }
+    
+    .fish-life-text {
+        font-size: 16px;
+    }
+    
+    .fish-life-text:first-child {
+        font-size: 18px;
     }
     
     .hero__media {
